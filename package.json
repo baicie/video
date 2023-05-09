@@ -1,5 +1,5 @@
 {
-  "name": "video-vue",
+  "name": "@baicie/video-morerepo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,5 +9,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.6",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
+    "tsx": "^3.12.7"
+  }
 }
