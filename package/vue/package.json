@@ -25,5 +25,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/video.js": "^7.3.51",
+    "video.js": "^8.3.0",
+    "vue": "^3.2.47"
+  },
+  "peerDependencies": {
+    "video.js": "^8.x",
+    "vue": "^3.2.x"
+  }
 }
