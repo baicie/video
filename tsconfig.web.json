@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "preserve",
+    "lib": ["ES2018", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "types": ["unplugin-vue-define-options/macros-global"]
+    // "types": ["unplugin-vue-macros/macros-global"]
+  },
+  "include": ["packages/vue", "packages/vue/src/type/shims-vue.d.ts"],
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/__tests__/**/*",
+    "**/gulpfile.ts",
+    "**/test-helper",
+    "packages/test-utils",
+    "**/*.md"
+  ]
+}
