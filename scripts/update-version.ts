@@ -1,14 +1,14 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import process from 'node:process'
 import consola from 'consola'
 import chalk from 'chalk'
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages'
 import type { Project } from '@pnpm/find-workspace-packages'
-import { version } from '../packages/cli/version'
-import {} from '@baicie/cli'
+import { pkgsPath } from './paths'
 
-export const projectRoot = path.resolve(fileURLToPath(import.meta.url), '..', '..')
-const getWorkspacePackages = () => findWorkspacePackages(projectRoot)
+// export const projectRoot = path.resolve(fileURLToPath(import.meta.url), '..', '..')
+const getWorkspacePackages = () => findWorkspacePackages(pkgsPath)
 
 function errorAndExit(err: Error): never {
   consola.error(err)
@@ -16,6 +16,8 @@ function errorAndExit(err: Error): never {
 }
 
 async function main() {
+  const version = process.env.TAG_VERSION
+  const gitHead = process.env.GIT_HEAD
   if (!version) {
     errorAndExit(
       new Error('No version'),
@@ -23,30 +25,32 @@ async function main() {
   }
 
   consola.log(chalk.cyan(`$new version: ${version}`))
-
-  consola.debug(chalk.yellow('Updating package.json for @baicie/cli'))
+  consola.log(chalk.cyan(`$GIT_HEAD: ${gitHead}`))
+  consola.debug(chalk.yellow('Updating package.json'))
 
   const pkgs = Object.fromEntries(
     (await getWorkspacePackages()).map(pkg => [pkg.manifest.name!, pkg]),
   )
 
-  const BaicieCli = pkgs['@baicie/cli']
-
   const writeVersion = async (project: Project) => {
     await project.writeProjectManifest({
       ...project.manifest,
       version,
-    })
+      gitHead,
+    } as any)
   }
 
   try {
-    await writeVersion(BaicieCli)
+    for(const [name,project] of Object.entries(pkgs)) {
+      await writeVersion(project)
+    }
+
   }
   catch (error) {
     errorAndExit(error as Error)
   }
 
-  consola.success(chalk.green(`package @baicie/cli updated successfully to version ${version}`))
+  consola.success(chalk.green(`packages updated successfully to version ${version}`))
 }
 
 main()
