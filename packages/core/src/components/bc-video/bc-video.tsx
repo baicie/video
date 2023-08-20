@@ -1,5 +1,4 @@
-import { Component, Element, Event, Host, Prop, Watch, h } from '@stencil/core';
-import { videoProps } from '../../player/props';
+import { Component, Element, Host, Prop, h } from '@stencil/core';
 
 export type AutoPlayType = boolean | 'muted' | 'play' | 'any';
 
