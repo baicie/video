@@ -28,7 +28,8 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^4.0.4"
+    "@stencil/core": "^4.0.4",
+    "video.js": "^8.5.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.3",

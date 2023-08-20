@@ -22,13 +22,19 @@
     "@stencil/vue-output-target": "^0.8.6",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.9",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
     "chalk": "^5.3.0",
     "consola": "^3.2.3",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "jest": "^29.6.2",
     "jest-cli": "^29.6.2",
     "puppeteer": "^21.0.2",
     "tsup": "^7.2.0",
     "tsx": "^3.12.7",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "vue": "^3.3.4"
   }
 }

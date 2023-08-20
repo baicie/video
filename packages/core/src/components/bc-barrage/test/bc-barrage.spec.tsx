@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { BButton } from '../button';
+import { BcBarrage } from '../bc-barrage';
 
-describe('baicie-button', () => {
+describe('bc-barrage', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [BButton],
-      html: `<baicie-button></baicie-button>`,
+      components: [BcBarrage],
+      html: `<bc-barrage></bc-barrage>`,
     });
     expect(page.root).toEqualHtml(`
-      <baicie-button>
+      <bc-barrage>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </baicie-button>
+      </bc-barrage>
     `);
   });
 });

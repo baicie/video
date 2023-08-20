@@ -5,78 +5,66 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AutoPlayType, PerloadType } from "./components/bc-video/bc-video";
+export { AutoPlayType, PerloadType } from "./components/bc-video/bc-video";
 export namespace Components {
-    interface BaicieButton {
-        /**
-          * 是否禁用 If `true`, the user cannot interact with the button.
-         */
-        "disabled": boolean;
+    interface BcBarrage {
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface BcVideo {
+        "autoplay"?: AutoPlayType;
+        "controls"?: boolean;
+        "height"?: string | number;
+        "loop"?: boolean;
+        "muted"?: boolean;
+        "poster"?: string;
+        "preload"?: PerloadType;
+        "src": string;
+        "width"?: string | number;
     }
 }
 declare global {
-    interface HTMLBaicieButtonElement extends Components.BaicieButton, HTMLStencilElement {
+    interface HTMLBcBarrageElement extends Components.BcBarrage, HTMLStencilElement {
     }
-    var HTMLBaicieButtonElement: {
-        prototype: HTMLBaicieButtonElement;
-        new (): HTMLBaicieButtonElement;
+    var HTMLBcBarrageElement: {
+        prototype: HTMLBcBarrageElement;
+        new (): HTMLBcBarrageElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLBcVideoElement extends Components.BcVideo, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLBcVideoElement: {
+        prototype: HTMLBcVideoElement;
+        new (): HTMLBcVideoElement;
     };
     interface HTMLElementTagNameMap {
-        "baicie-button": HTMLBaicieButtonElement;
-        "my-component": HTMLMyComponentElement;
+        "bc-barrage": HTMLBcBarrageElement;
+        "bc-video": HTMLBcVideoElement;
     }
 }
 declare namespace LocalJSX {
-    interface BaicieButton {
-        /**
-          * 是否禁用 If `true`, the user cannot interact with the button.
-         */
-        "disabled"?: boolean;
+    interface BcBarrage {
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface BcVideo {
+        "autoplay"?: AutoPlayType;
+        "controls"?: boolean;
+        "height"?: string | number;
+        "loop"?: boolean;
+        "muted"?: boolean;
+        "poster"?: string;
+        "preload"?: PerloadType;
+        "src"?: string;
+        "width"?: string | number;
     }
     interface IntrinsicElements {
-        "baicie-button": BaicieButton;
-        "my-component": MyComponent;
+        "bc-barrage": BcBarrage;
+        "bc-video": BcVideo;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "baicie-button": LocalJSX.BaicieButton & JSXBase.HTMLAttributes<HTMLBaicieButtonElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "bc-barrage": LocalJSX.BcBarrage & JSXBase.HTMLAttributes<HTMLBcBarrageElement>;
+            "bc-video": LocalJSX.BcVideo & JSXBase.HTMLAttributes<HTMLBcVideoElement>;
         }
     }
 }
