@@ -75,8 +75,8 @@ importers:
   packages/core:
     dependencies:
       '@stencil/core':
-        specifier: ^4.0.4
-        version: 4.0.4
+        specifier: ^4.0.5
+        version: 4.0.5
       video.js:
         specifier: ^8.5.2
         version: 8.5.2
@@ -94,8 +94,8 @@ importers:
         specifier: ^29.6.2
         version: 29.6.2(@types/node@20.4.9)
       puppeteer:
-        specifier: ^21.0.2
-        version: 21.0.2
+        specifier: ^21.1.0
+        version: 21.1.0
 
   packages/docs: {}
 
@@ -1922,22 +1922,6 @@ packages:
       write-yaml-file: 5.0.0
     dev: true
 
-  /@puppeteer/browsers@1.5.1:
-    resolution: {integrity: sha512-OY8S5/DIsCSn/jahxw+qhCKa6jYQff6yq1oenzakISLvGcwWpyMzshJ3BIR7iP0vG0RPJjvHRLRxbsWw4kah1w==}
-    engines: {node: '>=16.3.0'}
-    hasBin: true
-    dependencies:
-      debug: 4.3.4
-      extract-zip: 2.0.1
-      progress: 2.0.3
-      proxy-agent: 6.3.0
-      tar-fs: 3.0.4
-      unbzip2-stream: 1.4.3
-      yargs: 17.7.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@puppeteer/browsers@1.7.0:
     resolution: {integrity: sha512-sl7zI0IkbQGak/+IE3VEEZab5SSOlI5F6558WvzWGC1n3+C722rfewC1ZIkcF9dsoGSsxhsONoseVlNQG4wWvQ==}
     engines: {node: '>=16.3.0'}
@@ -1970,17 +1954,10 @@ packages:
       '@sinonjs/commons': 3.0.0
     dev: true
 
-  /@stencil/core@4.0.4:
-    resolution: {integrity: sha512-eE0BcjEH8JjS0XlgWGiQ0c3uxtJdLvnYRv8rK/WokhGdxht31UMhEM8r+pVHbLPD/y6cSApUfxTl1JVcFFs+Xw==}
-    engines: {node: '>=16.0.0', npm: '>=7.10.0'}
-    hasBin: true
-    dev: false
-
   /@stencil/core@4.0.5:
     resolution: {integrity: sha512-0nZRvvhjjOKsQFGX0pKiDtOS/5IiL7HRxtLqpIxHAxXKLs9ZcomTsdOwl12m/qjx2AtQReOfP8+x8jLOBNMOIQ==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
-    dev: true
 
   /@stencil/sass@3.0.5(@stencil/core@4.0.5):
     resolution: {integrity: sha512-9nyllMXOEvHywo6fP2iwXgnq32A+OOUE36Aq7iUjzwT3wdr04qsvupO1JNIyRvmvCDF15hOKXztrZH1/wDu2Zg==}
@@ -2863,15 +2840,6 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /chromium-bidi@0.4.20(devtools-protocol@0.0.1147663):
-    resolution: {integrity: sha512-ruHgVZFEv00mAQMz1tQjfjdG63jiPWrQPF6HLlX2ucqLqVTJoWngeBEKHaJ6n1swV/HSvgnBNbtTRIlcVyW3Fw==}
-    peerDependencies:
-      devtools-protocol: '*'
-    dependencies:
-      devtools-protocol: 0.0.1147663
-      mitt: 3.0.1
-    dev: true
-
   /chromium-bidi@0.4.20(devtools-protocol@0.0.1159816):
     resolution: {integrity: sha512-ruHgVZFEv00mAQMz1tQjfjdG63jiPWrQPF6HLlX2ucqLqVTJoWngeBEKHaJ6n1swV/HSvgnBNbtTRIlcVyW3Fw==}
     peerDependencies:
@@ -3099,10 +3067,6 @@ packages:
   /detect-newline@3.1.0:
     resolution: {integrity: sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==}
     engines: {node: '>=8'}
-    dev: true
-
-  /devtools-protocol@0.0.1147663:
-    resolution: {integrity: sha512-hyWmRrexdhbZ1tcJUGpO95ivbRhWXz++F4Ko+n21AY5PNln2ovoJw+8ZMNDTtip+CNFQfrtLVh/w4009dXO/eQ==}
     dev: true
 
   /devtools-protocol@0.0.1159816:
@@ -5293,23 +5257,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /puppeteer-core@21.0.2:
-    resolution: {integrity: sha512-6tRjB9RZmPApPhQhzXZxmPUBt+6KM2P/eCp8p2o0DvK3P1V2qYkRi6/EQJEBIFquqZ+kF1zaW9Tg69p0dQlqFg==}
-    engines: {node: '>=16.3.0'}
-    dependencies:
-      '@puppeteer/browsers': 1.5.1
-      chromium-bidi: 0.4.20(devtools-protocol@0.0.1147663)
-      cross-fetch: 4.0.0
-      debug: 4.3.4
-      devtools-protocol: 0.0.1147663
-      ws: 8.13.0
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: true
-
   /puppeteer-core@21.1.0:
     resolution: {integrity: sha512-ggfTj09jo81Y6M4DyNj80GrY6Pip+AtDUgGljqoSzP6FG5nz5Aju6Cs/X147fLgkJ4UKTb736U6cDp0ssLzN5Q==}
     engines: {node: '>=16.3.0'}
@@ -5320,21 +5267,6 @@ packages:
       debug: 4.3.4
       devtools-protocol: 0.0.1159816
       ws: 8.13.0
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: true
-
-  /puppeteer@21.0.2:
-    resolution: {integrity: sha512-RAgbVjvwLABz8y+83xGdE+v7JLmvvcyGSlhQUX6k3rpBeRIO593E3DCaSY9VRUq3VJPMm7nWzDiZjUaK1tIpQg==}
-    engines: {node: '>=16.3.0'}
-    requiresBuild: true
-    dependencies:
-      '@puppeteer/browsers': 1.5.1
-      cosmiconfig: 8.2.0
-      puppeteer-core: 21.0.2
     transitivePeerDependencies:
       - bufferutil
       - encoding
