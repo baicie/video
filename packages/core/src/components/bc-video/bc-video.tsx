@@ -1,4 +1,5 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
+import { useNamespace } from '../../hooks/use-namespace';
 
 export type AutoPlayType = boolean | 'muted' | 'play' | 'any';
 
@@ -35,40 +36,48 @@ export class BcVideo {
 
   @Prop() width?: string | number;
 
-  // @Prop() className?: string
+  @Prop() type?: string = 'ytb';
 
   private onClick = () => {};
 
   render() {
+    const ns = useNamespace('video');
     const {
       height,
       src,
       // className,
-      controls,
+      // controls,
       autoplay,
       loop,
       muted,
       poster,
       preload,
       width,
+      type,
     } = this;
 
     return (
-      <Host onClick={this.onClick}>
-        <video
-          height={height}
-          src={src}
-          // class={className}
-          controls={controls}
-          autoplay={autoplay}
-          loop={loop}
-          muted={muted}
-          poster={poster}
-          preload={preload}
-          width={width}
-        >
-          <slot></slot>
-        </video>
+      <Host class={`${ns.b()} ${ns.m(type)}`} onClick={this.onClick}>
+        <div class={ns.e('wrapper')} aria-label="baicie播放器">
+          <div class={ns.e('inner')}>
+            <video
+              height={height}
+              src={src}
+              // class={className}
+              controls={false}
+              autoplay={autoplay}
+              loop={loop}
+              muted={muted}
+              poster={poster}
+              preload={preload}
+              width={width}
+            >
+              <slot></slot>
+            </video>
+          </div>
+
+          <div class={ns.e('controls')}></div>
+        </div>
       </Host>
     );
   }

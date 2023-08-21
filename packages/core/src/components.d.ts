@@ -19,6 +19,7 @@ export namespace Components {
         "poster"?: string;
         "preload"?: PerloadType;
         "src": string;
+        "type"?: string;
         "width"?: string | number;
     }
 }
@@ -52,6 +53,7 @@ declare namespace LocalJSX {
         "poster"?: string;
         "preload"?: PerloadType;
         "src"?: string;
+        "type"?: string;
         "width"?: string | number;
     }
     interface IntrinsicElements {
