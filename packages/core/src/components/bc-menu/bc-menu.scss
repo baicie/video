@@ -9,10 +9,20 @@
   display: block;
 }
 
+div {
+  display: none;
+}
+
 @include b(menu) {
   @include set-component-css-var('menu', $menu);
 }
 
 @include b(menu) {
   color: red;
+  display: none;
+  overflow: hidden;
+
+  @include when(open) {
+    display: absolute;
+  }
 }
