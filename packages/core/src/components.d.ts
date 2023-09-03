@@ -10,6 +10,8 @@ export { AutoPlayType, PerloadType } from "./components/bc-video/bc-video";
 export namespace Components {
     interface BcBarrage {
     }
+    interface BcMenu {
+    }
     interface BcVideo {
         "autoplay"?: AutoPlayType;
         "controls"?: boolean;
@@ -30,6 +32,12 @@ declare global {
         prototype: HTMLBcBarrageElement;
         new (): HTMLBcBarrageElement;
     };
+    interface HTMLBcMenuElement extends Components.BcMenu, HTMLStencilElement {
+    }
+    var HTMLBcMenuElement: {
+        prototype: HTMLBcMenuElement;
+        new (): HTMLBcMenuElement;
+    };
     interface HTMLBcVideoElement extends Components.BcVideo, HTMLStencilElement {
     }
     var HTMLBcVideoElement: {
@@ -38,11 +46,14 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "bc-barrage": HTMLBcBarrageElement;
+        "bc-menu": HTMLBcMenuElement;
         "bc-video": HTMLBcVideoElement;
     }
 }
 declare namespace LocalJSX {
     interface BcBarrage {
+    }
+    interface BcMenu {
     }
     interface BcVideo {
         "autoplay"?: AutoPlayType;
@@ -58,6 +69,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "bc-barrage": BcBarrage;
+        "bc-menu": BcMenu;
         "bc-video": BcVideo;
     }
 }
@@ -66,6 +78,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "bc-barrage": LocalJSX.BcBarrage & JSXBase.HTMLAttributes<HTMLBcBarrageElement>;
+            "bc-menu": LocalJSX.BcMenu & JSXBase.HTMLAttributes<HTMLBcMenuElement>;
             "bc-video": LocalJSX.BcVideo & JSXBase.HTMLAttributes<HTMLBcVideoElement>;
         }
     }

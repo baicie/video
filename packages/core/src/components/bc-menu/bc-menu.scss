@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+@use '../../style/common/var.scss' as *;
+@use '../../style/mixins/mixins' as *;
+@use '../../style/mixins/utils' as *;
+@use '../../style/mixins/var' as *;
+
+:host {
+  display: block;
+}
+
+@include b(menu) {
+  @include set-component-css-var('menu', $menu);
+}
+
+@include b(menu) {
+  color: red;
+}
