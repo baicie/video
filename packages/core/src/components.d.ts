@@ -11,6 +11,7 @@ export namespace Components {
     interface BcBarrage {
     }
     interface BcMenu {
+        "menu": [];
     }
     interface BcVideo {
         "autoplay"?: AutoPlayType;
@@ -54,6 +55,7 @@ declare namespace LocalJSX {
     interface BcBarrage {
     }
     interface BcMenu {
+        "menu"?: [];
     }
     interface BcVideo {
         "autoplay"?: AutoPlayType;

@@ -21,8 +21,13 @@ div {
   color: red;
   display: none;
   overflow: hidden;
+  position: relative;
 
+  @include m(popup){
+    z-index: 100;
+  }
   @include when(open) {
-    display: absolute;
+    position: absolute;
+    display: block;
   }
 }
