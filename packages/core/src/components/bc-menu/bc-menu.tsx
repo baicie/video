@@ -1,4 +1,4 @@
-import { Component, Host, Listen, Prop, State, h } from '@stencil/core';
+import { Component, Host, Listen, Method, Prop, State, h } from '@stencil/core';
 import { useNamespace } from '../../hooks/use-namespace';
 import { useClassName } from '../../hooks/use-classname';
 
@@ -14,7 +14,7 @@ export interface MenuItemType {
   shadow: true,
 })
 export class BcMenu {
-  @Prop() menu: MenuItemType[] = [];
+  @Prop({ mutable: true }) menus: MenuItemType[] = [];
 
   @Listen('contextmenu')
   onContextMenu(e: MouseEvent) {
@@ -41,6 +41,11 @@ export class BcMenu {
   @State()
   _y: string = '0';
 
+  @Method()
+  async menuRender() {
+    return this.menus.map(item => <div>{item.label}</div>);
+  }
+
   render() {
     const ns = useNamespace('menu');
     const cn = useClassName();
@@ -48,7 +53,7 @@ export class BcMenu {
     return (
       <Host class={ns.b()}>
         <div class={cn.multiple(ns.b(), ns.is('open', this._open))} style={{ left: this._x, top: this._y }}>
-          {this.menu}
+          {this._x}
         </div>
         <slot></slot>
       </Host>

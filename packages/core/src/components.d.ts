@@ -5,13 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { MenuItemType } from "./components/bc-menu/bc-menu";
 import { AutoPlayType, PerloadType } from "./components/bc-video/bc-video";
+export { MenuItemType } from "./components/bc-menu/bc-menu";
 export { AutoPlayType, PerloadType } from "./components/bc-video/bc-video";
 export namespace Components {
     interface BcBarrage {
     }
     interface BcMenu {
-        "menu": [];
+        "menuRender": () => Promise<any[]>;
+        "menus": MenuItemType[];
     }
     interface BcVideo {
         "autoplay"?: AutoPlayType;
@@ -55,7 +58,7 @@ declare namespace LocalJSX {
     interface BcBarrage {
     }
     interface BcMenu {
-        "menu"?: [];
+        "menus"?: MenuItemType[];
     }
     interface BcVideo {
         "autoplay"?: AutoPlayType;
