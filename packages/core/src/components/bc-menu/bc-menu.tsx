@@ -14,15 +14,15 @@ export interface MenuItemType {
   shadow: true,
 })
 export class BcMenu {
-  @Prop({ mutable: true }) menus: MenuItemType[] = [];
-
+  @Prop() menuItems: MenuItemType[];
+  @Prop() name: string;
   @Listen('contextmenu')
   onContextMenu(e: MouseEvent) {
     e.preventDefault();
     this._open = true;
     this._x = `${e.clientX}px`;
     this._y = `${e.clientY}px`;
-    console.log('contextmenu', this._open, e.clientX, e.clientY);
+    console.log('contextmenu', this.name, this.menuItems);
   }
 
   @Listen('click')
@@ -41,9 +41,15 @@ export class BcMenu {
   @State()
   _y: string = '0';
 
+  // @Method()
+  // async menuRender() {
+  //   return this.menuItems.map(item => <div>{item.label}</div>);
+  // }
+
   @Method()
-  async menuRender() {
-    return this.menus.map(item => <div>{item.label}</div>);
+  async onClickWapper(e: MouseEvent, item: MenuItemType) {
+    e.preventDefault();
+    console.log(e, item);
   }
 
   render() {
@@ -53,7 +59,11 @@ export class BcMenu {
     return (
       <Host class={ns.b()}>
         <div class={cn.multiple(ns.b(), ns.is('open', this._open))} style={{ left: this._x, top: this._y }}>
-          {this._x}
+          {this.menuItems.map(item => (
+            <div onClick={e => this.onClickWapper(e, item)} class={ns.e('item')}>
+              {item.label}
+            </div>
+          ))}
         </div>
         <slot></slot>
       </Host>

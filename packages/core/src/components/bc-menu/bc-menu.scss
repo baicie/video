@@ -22,12 +22,22 @@ div {
   display: none;
   overflow: hidden;
   position: relative;
+  width: 257px;
 
-  @include m(popup){
+  flex-direction: column;
+
+  @include e(item) {
+    display: flex;
+    width: 257px;
+    height: 40px;
+  }
+
+  @include m(popup) {
     z-index: 100;
   }
   @include when(open) {
     position: absolute;
     display: block;
+    display: flex;
   }
 }

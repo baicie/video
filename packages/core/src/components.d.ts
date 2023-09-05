@@ -13,8 +13,9 @@ export namespace Components {
     interface BcBarrage {
     }
     interface BcMenu {
-        "menuRender": () => Promise<any[]>;
-        "menus": MenuItemType[];
+        "menuItems": MenuItemType[];
+        "name": string;
+        "onClickWapper": (e: MouseEvent, item: MenuItemType) => Promise<void>;
     }
     interface BcVideo {
         "autoplay"?: AutoPlayType;
@@ -58,7 +59,8 @@ declare namespace LocalJSX {
     interface BcBarrage {
     }
     interface BcMenu {
-        "menus"?: MenuItemType[];
+        "menuItems"?: MenuItemType[];
+        "name"?: string;
     }
     interface BcVideo {
         "autoplay"?: AutoPlayType;
